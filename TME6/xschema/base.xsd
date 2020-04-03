@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+
+<!DOCTYPE xs:schema SYSTEM "XMLSchema.dtd">
+
+<!-- A Compléter :
+
+NOM 1:
+Prenom 1:
+
+NOM 2:
+Prenom 2:
+
+Groupe:
+Binome:
+
+
+Le schéma du guide touristique. La déclaration des éléments doit être imbriquée  
+
+-->
+
+
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+
+<!-- à compléter :-->
+<xs:element name="base">
+  <xs:complexType>
+    <xs:choice minOccurs="0" maxOccurs="unbounded">
+      <xs:element ref="restaurant" />
+      <xs:element ref="ville" />
+    </xs:choice>
+  </xs:complexType>
+</xs:element>
+<xs:element name="restaurant">
+  <xs:complexType>
+    <xs:simpleType name="etoile" >
+      <xs:restriction base="xs:integer" >
+	<xs:minInclusive value="0" />
+	<xs:maxInclusive value="3" />
+      </xs:restriction>
+    </xs:simpleType>    
+    <xs:sequence >
+      <xs:element name="fermeture" type="xs:string" minOccurs="0" />
+      <xs:element name="menu" maxOccurs="unbounded" minOccurs="1" >
+	<xs:complexType>
+          <xs:attribute name="nom" type="xs:string" use="required" />
+	  <xs:attribute name="prix" type="xs:string" use="required" />
+	</xs:complexType>
+      </xs:element>
+    </xs:sequence>
+    <xs:attribute name="nom" type="xs:string" use="required" />
+    <xs:attribute name="ville" type="xs:string" use="required" />
+  </xs:complexType>
+  <xs:key name="cleville" >
+    <xs:selector xpath="restaurant" />
+    <xs:field xpath="@ville" />
+  </xs:key>
+  
+  <xs:keyref name="refcleville" refer="cleville" >
+    <xs:selector xpath="Ville" />
+    <xs:field xpath="@nom" />
+  </xs:keyref>
+
+</xs:element>
+
+
+<xs:element name="ville">
+  <xs:complexType>   
+    <xs:sequence>
+      <xs:element name="plusBeauMonument" minOccurs="0" >
+	<xs:complexType>
+          <xs:attribute name="nom" type="xs:string" use="required" />
+	  <xs:attribute name="tarif" type="xs:string" use="required" />
+	</xs:complexType>
+      </xs:element>    
+    </xs:sequence>
+    <xs:attribute name="nom" type="xs:string" use="required" />
+    <xs:attribute name="departement" type="xs:string" use="required" /> 
+  </xs:complexType>
+</xs:element>    
+
+</xs:schema>

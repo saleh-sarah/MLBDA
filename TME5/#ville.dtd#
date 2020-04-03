@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+
+<!-- type de donnnee pour le guide touristique -->
+<!-- a completer ... -->
+
+
+<!ELEMENT monument EMPTY>
+<!ELEMENT menu EMPTY>
+<!ELEMENT menus (menu{10})>
+<!ELEMENT ville (monument)>
+<!ELEMENT restaurant (ville, menus*)>
+
+<!ATTLIST monument nom CDATA
+	  tarif CDATA>
+<!ATTLIST menu nom CDATA
+	  prix CDATA>
+<!ATTLIST ville nom CDATA
+	  departement CDATA
+	  >
+<!ATTLIST 

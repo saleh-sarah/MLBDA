@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<!DOCTYPE xs:schema SYSTEM "XMLSchema.dtd">
+
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+targetNamespace="http://www.books.org"
+xmlns="http://www.books.org"
+elementFormDefault="qualified">
+
+  <xs:element name="bookstore">
+    <xs:complexType>
+      <xs:sequence maxOccurs="unbounded" minOccurs="0">
+	<xs:element ref="book"/>
+      </xs:sequence>
+      <xs:key name="clebook">
+	<xs:selector xpath="book"/>
+	<xs:field xpath="@isbn"/>
+      </xs:key>
+    </xs:complexType>
+  </xs:element>   
+
+  <xs:element name="book">
+    <xs:complexType>
+      <xs:attribute name="title" type="xsd:string" use="required" />
+      <xs:attribute name="author" type="xsd:string" use="required" />
+      <xs:attribute name="date" type="xsd:string" use="required" />
+      <xs:attribute name="isbn" type="xsd:string" use="required" />
+      <xs:attribute name="publisher" type="xsd:string" use="required"/>
+    </xs:complexType>
+  </xs:element> 
+
+
+
+</xs:schema>
+

@@ -1,0 +1,84 @@
+-- compléter l'entête 
+-- ==================
+
+-- NOM    :
+-- Prénom :
+
+-- NOM    :
+-- Prénom :
+
+-- Groupe :
+-- binome :
+
+-- ================================================
+
+set sqlbl on
+
+
+-- nettoyer le compte
+@vider
+
+-- Définition des types de données
+
+prompt essai
+
+
+
+create type Matiere as object(
+ nom VARCHAR2(30),
+ prix  NUMBER(4),
+ masse_volumique NUMBER(3));
+@compile
+
+create type Piece as object(
+	nom varchar2(30)
+) not final;
+@compile
+
+create type PBase under Piece(
+ est_en ref Matiere) not final;
+@compile
+
+create type Cube under PBase(
+cote number(10));
+@compile
+
+create type Sphere under PBase(
+rayon number(10));
+@compile
+
+create type Cylindre under PBase(
+diametre number(3),
+hauteur number(3));
+@compile
+
+create type Parallelepipede under PBase(
+hauteur number(3),
+longueur number(3),
+largeur number(3));
+@compile
+
+create type PieceQuantite as object(
+quantite number(5));
+@compile
+
+create type EnsPieceQuantite as table of PieceQuantite;
+@compile
+
+create type PComposite under Piece(
+cout number(4),
+composeDe EnsPieceQuantite
+);
+@compile
+
+@liste
+
+select * from LesMatieres;
+
+
+
+
+drop LesMatieres;
+
+-- liste de tous les types créés
+@liste

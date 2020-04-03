@@ -1,0 +1,33 @@
+#commentaire
+base <http://example.org/> 
+prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> 
+prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> 
+prefix foaf: <http://xmlns.com/foaf/0.1/> 
+prefix rel: <http://www.perceive.net/schemas/relationship/> 
+prefix : <http://example.org/> 
+prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> 
+prefix univ: <http://www.faculty.ac> 
+
+#q3
+#select distinct ?s where {{?s a :City} union {{?o :livesIn ?s} union {?x :locatedAt ?s}}}
+
+#q4
+#select distinct ?s where { {?s :studiedAt ?u} . {{?s :hasFather ?f} union { ?s :hasMother ?m  }} . { {?f :studiedAt ?u } union {?m :studiedAt ?u}}}
+
+#q5
+#select distinct ?s where { {?s :studiedAt ?u} . {{?s :hasFather ?f} .{ ?s :hasMother ?m  }} . { {?f :studiedAt ?u } . {?m :studiedAt ?u}}}
+
+#q6
+#select distinct ?s where { { {?s :studiedAt ?u} . {{?s :hasFather ?f} union { ?s :hasMother ?m  }} minus { {?f :studiedAt ?u } union {?m :studiedAt ?u}}}}
+
+#q7
+#select distinct ?p ?u where { {?p :studiedAt ?u} . {{ ?p :hasBrother ?b}  }}
+#select distinct ?p where { {{?p :studiedAt ?u} . { ?p :hasBrother ?b}  } minus {?b :studiedAt ?u }}
+
+#q8
+#select distinct ?p where { {?p :livesIn ?v} . {?p :studiedAt ?u} minus {?u :locatedAt ?v}}
+
+#q9
+select distinct ?p where { {{:liz :friend ?p2} . {?p2 :friend ?p}} minus {{:liz :friend ?p} union {?p :friend ?p2} } }
+
+

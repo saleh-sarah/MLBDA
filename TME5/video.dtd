@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+
+<!-- type de donnnee pour le document base1.xml -->
+
+<!-- a completer ... -->
+
+
+
+
+<!ELEMENT films EMPTY>
+<!ELEMENT acteurs EMPTY>
+<!ELEMENT dvd EMPTY>
+<!ELEMENT abonnes EMPTY>
+<!ELEMENT empres EMPTY>
+
+
+<!ATTLIST films NoFilm ID #REQUIRED
+	  titre CDATA #REQUIRED
+	  nationalite CDATA #REQUIRED
+	  realisateur CDATA #REQUIRED
+	  couleur CDATA #REQUIRED
+	  annee CDATA #REQUIRED
+	  genre CDATA #REQUIRED
+	  duree CDATA #REQUIRED
+	  synopsis CDATA #REQUIRED>
+
+<!ATTLIST acteurs NoFilms IDREFS #REQUIRED
+	  acteur ID #REQUIRED>
+
+<!ATTLIST dvd NoFilm IDREF #REQUIRED
+	  NoExemplaire ID #REQUIRED
+	  support CDATA #REQUIRED
+	  statut CDATA #REQUIRED>
+
+
+<!ATTLIST abonnes code ID #REQUIRED
+	  nom CDATA #REQUIRED
+	  prenom CDATA #REQUIRED
+	  noRue CDATA #REQUIRED
+	  codePostal CDATA #REQUIRED
+	  ville CDATA #REQUIRED
+	  batiment CDATA #REQUIRED
+	  etage CDATA #REQUIRED
+	  digicode CDATA #REQUIRED
+	  telephone CDATA #REQUIRED
+	  email CDATA #REQUIRED
+	  banque CDATA #REQUIRED
+	  guichet CDATA #REQUIRED
+	  compte CDATA #REQUIRED
+	  nbEmprunts CDATA #REQUIRED>
+
+<!ATTLIST empres NoFilm IDREF #REQUIRED
+	  NoExemplaire IDREF #REQUIRED
+	  codeAbonne CDATA #REQUIRED
+	  dateEmpRes CDATA #REQUIRED >

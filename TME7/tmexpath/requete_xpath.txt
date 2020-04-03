@@ -1,0 +1,25 @@
+Exercice : Films
+
+1.//TITRE/text()
+2.//FILM[contains(GENRE,"Horreur")]/TITRE/text()
+3.//FILM[contains(TITRE, "Alien")]/RESUME/text()
+4.//FILM[contains(ROLES/ROLE/PRENOM, "James") and contains(ROLES/ROLE/NOM, "Stewart")]/TITRE/text()
+5.//FILM[ROLES/ROLE[ contains(PRENOM, "James") and contains(NOM, "Stewart") and following-sibling::ROLE [contains(PRENOM, "Kim") and contains(NOM, "Novak")]]]/TITRE/text()
+6.//FILM[RESUME]/TITRE/text()
+7.//FILM[not(RESUME)/TITRE/text()
+8.//FILM[TITRE="Vertigo"]/MES/@idref
+9.//FILM[TITRE="Reservoir dogs"]/ROLES/ROLE[contains(PRENOM, "Harvey") and contains(NOM, "Keitel")]/INTITULE/text()
+10.//FILM[last()]/TITRE/text()
+11.///FILM[following-sibling::FILM[1]/TITRE="Shining"]/TITRE/text()
+13.//FILM[contains(TITRE,"V")]/TITRE/text()
+14.//*[count(*)="3"]
+15.//*[contains(name(),"TU")]
+
+Exercice: Guide touristique
+
+18.//restaurant[menu[contains(@nom, "salade") and  following-sibling::menu[contains(@nom, "salade")]/@prix = @prix]]/@nom
+19.//menu[not(following::menu/@prix=@prix)]/@prix
+20.//restaurant[menu/@prix=//ville/plusBeauMonument/@tarif][@ville=//ville/@nom]/@nom
+21.a)les petits fils
+b)fils et petit-fils
+c)les fils qui ont un attribut inférieur à 5 lettres

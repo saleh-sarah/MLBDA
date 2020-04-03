@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+
+<!-- type de donnnee pour le document base1.xml -->
+
+<!-- a completer ... -->
+
+
+
+
+<!ELEMENT films EMPTY>
+<!ELEMENT acteurs EMPTY>
+<!ELEMENT dvd EMPTY>
+<!ELEMENT abonnes EMPTY>
+<!ELEMENT empres EMPTY>
+
+
+<!ATTLIST films NoFilm ID #REQUIRED
+	  titre CDATA #REQUIRED
+	  nationalite CDATA #REQUIRED
+	  realisateur CDATA #REQUIRED
+	  couleur CDATA #REQUIRED
+	  annee CDATA #REQUIRED
+	  genre CDATA #REQUIRED
+	  duree CDATA #REQUIRED
+	  synopsis CDATA #REQUIRED>
